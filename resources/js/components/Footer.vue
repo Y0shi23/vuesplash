@@ -9,19 +9,24 @@
   </footer>
 </template>
 <script>
+import { mapState, mapGetters } from 'vuex'
+
 export default {
   computed: {
-    isLogin () {
-      return this.$store.getters['auth/check']
-    },
-    isLogin () {
-      return this.$store.getters['auth/check']
-    }
+    ...mapState({
+      apiStatus: state => state.auth.apiStatus
+    }),
+    ...mapGetters({
+      isLogin: 'auth/check'
+    })
   },
   methods: {
     async logout () {
-      await this.$store.dispatch('auth/logout')    
-      this.$router.push('/vuesplash/login')
+      await this.$store.dispatch('auth/logout')
+
+      if (this.apiStatus) {
+        this.$router.push('/login')
+      }
     }
   }
 }
