@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Storage;
 
 class Photo extends Model
 {
+    /** 1ページあたりの表示件数 */
+    protected $perPage = 15;
+
     /** プライマリキーの型 */
     protected $keyType = 'string';
 
