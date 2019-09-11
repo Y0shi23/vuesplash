@@ -37,7 +37,6 @@ const routes = [
 
 // VueRouterインスタンスを作成する
 const router = new VueRouter({
-    base: '/vuesplash/',
     mode: 'history',
     routes
 })

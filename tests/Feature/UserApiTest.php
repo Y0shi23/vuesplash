@@ -17,6 +17,7 @@ class UserApiTest extends TestCase
 
         // テストユーザー作成
         $this->user = factory(User::class)->create();
+        $this->routeUser = route('user');
     }
 
     /**
@@ -24,7 +25,7 @@ class UserApiTest extends TestCase
      */
     public function should_ログイン中のユーザーを返却する() : void
     {
-        $response = $this->actingAs($this->user)->json('GET', route('user'));
+        $response = $this->actingAs($this->user)->json('GET', $this->routeUser);
 
         $response
             ->assertStatus(200)
@@ -38,7 +39,7 @@ class UserApiTest extends TestCase
      */
     public function should_ログインされていない場合は空文字を返却する() : void
     {
-        $response = $this->json('GET', route('user'));
+        $response = $this->json('GET', $this->routeUser);
 
         $response->assertStatus(200);
         $this->assertEquals("", $response->content());
