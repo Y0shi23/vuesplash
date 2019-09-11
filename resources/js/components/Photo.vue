@@ -13,7 +13,7 @@
     </figure>
     <RouterLink
       class="photo__overlay"
-      :to="`/vuesplash/photos/${item.id}`"
+      :to="`/photos/${item.id}`"
       :title="`View the photo by ${item.owner.name}`"
     >
       <div class="photo__controls">

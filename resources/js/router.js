@@ -35,12 +35,17 @@ const routes = [
     }
   },
   {
-    path: '/vuesplash/photos/:id',
+    path: '/photos/:id',
     component: PhotoDetail,
     props: true
   },
   {
-    path: '/vuesplash/500',
+    path: '/photos/:id',
+    component: PhotoDetail,
+    props: true
+  },
+  {
+    path: '/500',
     component: SystemError
   }
 ]
