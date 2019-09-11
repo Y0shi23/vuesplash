@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 // ページコンポーネントをインポートする
 import PhotoList from './pages/PhotoList.vue'
 import Login from './pages/Login.vue'
+import PhotoDetail from './pages/PhotoDetail.vue'
 
 import store from './store'
 import SystemError from './pages/errors/System.vue'
@@ -30,7 +31,12 @@ const routes = [
     }
   },
   {
-    path: '/500',
+    path: '/vuesplash/photos/:id',
+    component: PhotoDetail,
+    props: true
+  },
+  {
+    path: '/vuesplash/500',
     component: SystemError
   }
 ]
